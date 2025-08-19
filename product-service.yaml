@@ -22,18 +22,13 @@ spec:
           env:
             - name: JAVA_TOOL_OPTIONS
               value: "-DCONFIG_SERVER_URI=configserver:http://config-server:8888 -Dspring.profiles.active=k8s"
-          readinessProbe:
-            httpGet:
-              path: /actuator/health
-              port: 9010
-            initialDelaySeconds: 10
-            periodSeconds: 5
-          livenessProbe:
-            httpGet:
-              path: /actuator/health
-              port: 9010
-            initialDelaySeconds: 20
-            periodSeconds: 10
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
