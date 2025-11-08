@@ -41,6 +41,6 @@ spec:
   selector:
     app: category-service
   ports:
-    - port: 9000
+    - port: 8080
       targetPort: 9000
       protocol: TCP
