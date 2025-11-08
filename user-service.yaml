@@ -41,6 +41,6 @@ spec:
   selector:
     app: user-service
   ports:
-    - port: 9050
+    - port: 8080
       targetPort: 9050
       protocol: TCP
