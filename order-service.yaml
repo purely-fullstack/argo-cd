@@ -41,6 +41,6 @@ spec:
   selector:
     app: order-service
   ports:
-    - port: 9070
+    - port: 8080
       targetPort: 9070
       protocol: TCP
