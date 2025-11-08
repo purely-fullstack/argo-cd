@@ -41,6 +41,6 @@ spec:
   selector:
     app: notification-service
   ports:
-    - port: 9020
+    - port: 8080
       targetPort: 9020
       protocol: TCP
