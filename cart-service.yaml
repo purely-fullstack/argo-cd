@@ -41,6 +41,6 @@ spec:
   selector:
     app: cart-service
   ports:
-    - port: 9060
+    - port: 8080
       targetPort: 9060
       protocol: TCP
