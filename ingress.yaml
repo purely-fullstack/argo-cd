@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: rajureddy-ingress
-  namespace: default
+  namespace: purely
   annotations:
     kubernetes.io/ingress.class: "nginx"
     # Optional: Enable automatic HTTPS via cert-manager (if installed)
