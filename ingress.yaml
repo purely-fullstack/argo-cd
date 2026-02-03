@@ -19,7 +19,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: frontend-svc      
+            name: react-frontend     
             port:
               number: 80
 
@@ -30,6 +30,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: gateway-svc       
+            name: api-gateway       
             port:
               number: 8080
