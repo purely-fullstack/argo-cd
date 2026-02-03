@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: react-frontend
-          image: rajureddy98/purely-react-frontend:1.0
+          image: rajureddy98/purely-react-frontend:4.0
           ports:
             - containerPort: 80
           resources:
