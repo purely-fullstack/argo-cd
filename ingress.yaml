@@ -12,14 +12,14 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: rajureddy.live
+  - host: purely.rajureddy.live
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: frontend-svc      # 👈 your frontend service name
+            name: frontend-svc      
             port:
               number: 80
 
@@ -30,12 +30,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: gateway-svc       # 👈 your API gateway service name
+            name: gateway-svc       
             port:
               number: 8080
-
-  tls:
-  - hosts:
-      - rajureddy.live
-      - api.rajureddy.live
-    secretName: rajureddy-tls       # 👈 cert-manager will create this automatically
