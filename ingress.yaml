@@ -12,7 +12,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: purely.rajureddy.live
+  - host: purely.madanreddy.online
     http:
       paths:
       - path: /
@@ -23,7 +23,7 @@ spec:
             port:
               number: 80
 
-  - host: purelyapi.rajureddy.live
+  - host: purelyapi.madanreddy.online
     http:
       paths:
       - path: /
