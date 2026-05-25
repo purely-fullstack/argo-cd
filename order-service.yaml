@@ -19,6 +19,18 @@ spec:
           image: rajureddy98/purely-order-service:1.0
           ports:
             - containerPort: 9070
+          livenessProbe:
+            tcpSocket:
+              port: 9070
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
+          readinessProbe:
+            tcpSocket:
+              port: 9070
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
           env:
             - name: JAVA_TOOL_OPTIONS
               value: "-DCONFIG_SERVER_URI=configserver:http://config-server:8888 -Dspring.profiles.active=k8s"

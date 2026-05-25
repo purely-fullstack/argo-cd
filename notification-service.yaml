@@ -19,6 +19,18 @@ spec:
           image: rajureddy98/purely-notification-service:1.0
           ports:
             - containerPort: 9020
+          livenessProbe:
+            tcpSocket:
+              port: 9020
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
+          readinessProbe:
+            tcpSocket:
+              port: 9020
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
           env:
             - name: JAVA_TOOL_OPTIONS
               value: "-DCONFIG_SERVER_URI=configserver:http://config-server:8888 -Dspring.profiles.active=k8s"

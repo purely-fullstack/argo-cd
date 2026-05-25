@@ -19,6 +19,18 @@ spec:
           image: rajureddy98/purely-config-server:1.0
           ports:
             - containerPort: 8888
+          livenessProbe:
+            tcpSocket:
+              port: 8888
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
+          readinessProbe:
+            tcpSocket:
+              port: 8888
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
           env:
             - name: JAVA_TOOL_OPTIONS
               value: "-Djgit.fsattributes=false -Duser.home=/tmp -Dspring.profiles.active=k8s"
