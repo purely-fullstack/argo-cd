@@ -59,4 +59,4 @@ spec:
     - port: 8761
       targetPort: 8761
       protocol: TCP
-  type: ClusterIP
+  type: NodePort
