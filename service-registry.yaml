@@ -18,7 +18,7 @@ spec:
       containers:
         - name: eureka-service
           image: rajureddy98/service-registry:v1
-          imagePullPolicy: IAlways
+          imagePullPolicy: Always
           ports:
             - containerPort: 8761
 
