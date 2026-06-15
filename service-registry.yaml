@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-service
+  namespace: purely
+  labels:
+    app: eureka-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eureka-service
+  template:
+    metadata:
+      labels:
+        app: eureka-service
+    spec:
+      containers:
+        - name: eureka-service
+          image: rajureddy98/service-registry:v1
+          imagePullPolicy: IAlways
+          ports:
+            - containerPort: 8761
+
+          livenessProbe:
+            tcpSocket:
+              port: 8761
+            initialDelaySeconds: 60
+            periodSeconds: 30
+
+          readinessProbe:
+            tcpSocket:
+              port: 8761
+            initialDelaySeconds: 60
+            periodSeconds: 30
+
+          env:
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Dspring.profiles.active=k8s"
+
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-service
+  namespace: purely
+spec:
+  selector:
+    app: eureka-service
+  ports:
+    - port: 8761
+      targetPort: 8761
+      protocol: TCP
+  type: ClusterIP
