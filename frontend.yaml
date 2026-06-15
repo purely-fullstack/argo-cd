@@ -34,7 +34,7 @@ metadata:
   labels:
     app: react-frontend
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: react-frontend
   ports:
