@@ -11,6 +11,11 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  tls:
+  - hosts:
+    - rajureddy.live
+    - api.rajureddy.live
+    secretName: rajureddy-tls
   rules:
   - host: rajureddy.live
     http:
